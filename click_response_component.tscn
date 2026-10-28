@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://chyog56ycprh8"]
+
+[ext_resource type="Texture2D" uid="uid://c2f3hs0hjb0kf" path="res://sprites/click_response.png" id="1_fyh63"]
+[ext_resource type="Script" uid="uid://d3pqyhu2wp1tx" path="res://click_response_component.gd" id="1_t8vxk"]
+
+[node name="ClickResponseComponent" type="TextureRect"]
+visible = false
+modulate = Color(1, 1, 1, 0.247059)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fyh63")
+script = ExtResource("1_t8vxk")

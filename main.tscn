@@ -1,0 +1,250 @@
+[gd_scene load_steps=8 format=3 uid="uid://byedoi7p20gm4"]
+
+[ext_resource type="Script" uid="uid://dgda83tmub4ht" path="res://main.gd" id="1_272bh"]
+[ext_resource type="Texture2D" uid="uid://bubtxegjjx3fk" path="res://sprites/water_bottle.png" id="2_5vw27"]
+[ext_resource type="Texture2D" uid="uid://coak8hhptur5s" path="res://sprites/water_glass.png" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://dqba6ax370u7" path="res://sprites/back_button.png" id="4_kek77"]
+[ext_resource type="PackedScene" uid="uid://chyog56ycprh8" path="res://click_response_component.tscn" id="5_lquwl"]
+
+[sub_resource type="Gradient" id="Gradient_lquwl"]
+offsets = PackedFloat32Array(0, 0.0909091, 1)
+colors = PackedColorArray(0.13662, 0.372034, 1, 1, 0.567637, 0.708991, 1, 1, 0.735599, 0.823978, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7mycd"]
+gradient = SubResource("Gradient_lquwl")
+width = 420
+height = 614
+fill_from = Vector2(0.499797, 0)
+fill_to = Vector2(0.487302, 1)
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_272bh")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 422.0
+offset_bottom = 646.0
+mouse_filter = 0
+texture = SubResource("GradientTexture2D_7mycd")
+
+[node name="Label3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 111.0
+offset_top = 444.0
+offset_right = 321.0
+offset_bottom = 498.0
+theme_override_colors/font_color = Color(0.215686, 0.509804, 0.827451, 1)
+theme_override_colors/font_focus_color = Color(0.337255, 0.658824, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "0.6 L / 1 L"
+flat = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 38.0
+offset_right = 349.0
+offset_bottom = 93.0
+theme_override_colors/font_color = Color(0.215686, 0.509804, 0.827451, 1)
+theme_override_font_sizes/font_size = 40
+text = "water tracker"
+
+[node name="Label" type="Label" parent="Label"]
+layout_mode = 0
+offset_left = -87.0
+offset_top = 36.0
+offset_right = 335.0
+offset_bottom = 90.0
+theme_override_colors/font_color = Color(0.215686, 0.509804, 0.827451, 1)
+theme_override_font_sizes/font_size = 32
+text = "stay hydrated"
+horizontal_alignment = 1
+
+[node name="WaterBottle" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 221.0
+offset_right = 144.0
+offset_bottom = 349.0
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("2_5vw27")
+
+[node name="ClickResponseComponent" parent="WaterBottle" instance=ExtResource("5_lquwl")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="RevertAction" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 290.0
+offset_top = 254.0
+offset_right = 418.0
+offset_bottom = 382.0
+scale = Vector2(0.75, 0.75)
+texture_normal = ExtResource("4_kek77")
+
+[node name="ClickResponseComponent" parent="RevertAction" instance=ExtResource("5_lquwl")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="WaterGlass" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 217.0
+offset_right = 264.0
+offset_bottom = 345.0
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("2_h2yge")
+
+[node name="ClickResponseComponent" parent="WaterGlass" instance=ExtResource("5_lquwl")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 47.0
+offset_top = 210.0
+offset_right = 401.0
+offset_bottom = 381.0
+color = Color(0, 0, 0, 0.309804)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_top = 510.0
+offset_right = 422.0
+offset_bottom = 646.0
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 14.0
+offset_top = 101.0
+offset_right = 415.0
+offset_bottom = 428.0
+
+[node name="Label2" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = -9.0
+offset_top = 60.0
+offset_right = 413.0
+offset_bottom = 153.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "This will apply from today onwards"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 10.0
+offset_right = 312.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Enter new daily goal"
+
+[node name="Label4" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 270.0
+offset_right = 187.0
+offset_bottom = 324.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Cancel"
+
+[node name="Label3" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 206.0
+offset_top = 270.0
+offset_right = 400.0
+offset_bottom = 324.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "OK"
+
+[node name="SpinBox2" type="SpinBox" parent="ColorRect"]
+layout_mode = 0
+offset_left = 310.0
+offset_top = 213.0
+offset_right = 397.0
+offset_bottom = 264.0
+min_value = 0.5
+max_value = 10.0
+step = 0.1
+value = 0.5
+
+[node name="SpinBox" type="SpinBox" parent="ColorRect"]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 10.0
+offset_right = 403.0
+offset_bottom = 61.0
+min_value = 0.5
+max_value = 10.0
+step = 0.1
+value = 0.5
+
+[node name="Label5" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 168.0
+offset_right = 399.0
+offset_bottom = 273.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Enter custom amount of 
+water drinken"
+justification_flags = 160
+
+[node name="Button2" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 332.0
+offset_top = 2.0
+offset_right = 422.0
+offset_bottom = 115.0
+text = "load"
+
+[node name="Button" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 90.0
+offset_bottom = 113.0
+text = "save"
+
+[connection signal="button_up" from="Label3" to="ColorRect" method="show"]
+[connection signal="button_up" from="WaterBottle" to="WaterBottle/ClickResponseComponent" method="blink"]
+[connection signal="button_up" from="WaterBottle" to="." method="add_water" binds= [0.5]]
+[connection signal="button_up" from="RevertAction" to="." method="revert_action"]
+[connection signal="button_up" from="RevertAction" to="RevertAction/ClickResponseComponent" method="blink"]
+[connection signal="button_up" from="WaterGlass" to="WaterGlass/ClickResponseComponent" method="blink"]
+[connection signal="button_up" from="WaterGlass" to="." method="add_water" binds= [0.3]]
+[connection signal="gui_input" from="ScrollContainer" to="." method="_on_scroll_container_gui_input"]
+[connection signal="button_up" from="ColorRect/Label4" to="ColorRect" method="hide"]
+[connection signal="button_up" from="ColorRect/Label3" to="." method="add_water_from_input"]
+[connection signal="button_up" from="ColorRect/Label3" to="." method="set_goal"]
+[connection signal="button_up" from="ColorRect/Label3" to="ColorRect" method="hide"]
+[connection signal="button_up" from="Button2" to="." method="load_state"]
+[connection signal="button_up" from="Button" to="." method="save_state"]

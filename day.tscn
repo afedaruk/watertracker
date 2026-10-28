@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6elbxx87euj7"]
+
+[ext_resource type="Texture2D" uid="uid://dk7dxsn8jkx0" path="res://sprites/day_button_empty.png" id="1_e53rc"]
+[ext_resource type="Texture2D" uid="uid://he6is4h5xdu2" path="res://sprites/day_button_full.png" id="2_xglx6"]
+[ext_resource type="Script" uid="uid://bo7xr6hw7m8ho" path="res://day.gd" id="3_xglx6"]
+
+[sub_resource type="Theme" id="Theme_xglx6"]
+default_font_size = 25
+
+[node name="Day" type="TextureProgressBar"]
+anchors_preset = -1
+anchor_left = -0.043
+anchor_top = -0.074
+anchor_right = 0.043
+anchor_bottom = 0.077
+offset_left = 49.536
+offset_top = 47.952
+offset_right = 48.464
+offset_bottom = 48.104
+pivot_offset = Vector2(49, 0)
+max_value = 1.0
+step = 0.0
+value = 0.445
+allow_greater = true
+fill_mode = 3
+texture_under = ExtResource("1_e53rc")
+texture_progress = ExtResource("2_xglx6")
+script = ExtResource("3_xglx6")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 32.0
+offset_right = 81.0
+offset_bottom = 67.0
+theme = SubResource("Theme_xglx6")
+theme_override_colors/font_color = Color(0.211765, 0.501961, 0.815686, 1)
+text = "01-01"
+horizontal_alignment = 1
